@@ -1,0 +1,68 @@
+# git user configuration file
+# Author: Aaron Bradley
+# abradley@sitchfix.com
+
+
+[core]
+    editor = /usr/bin/nano
+
+[user]
+	name = Aaron Bradley
+	email = abradley@stitchfix.com
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = red reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = yellow
+    frag = magenta
+    old = red bold
+    new = green
+    plain = white
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[push]
+    default = upstream
+
+[pull]
+    default = current
+
+[branch]
+    autosetuprebase = always
+
+[alias]
+    # list all aliases
+    aliases = "!git config -l | grep alias | cut -c 7-"
+
+    st = status
+    c = commit
+    cm = commit -m
+    cam = commit -a -m
+    diff = diff --word-diff
+
+    # search for string
+    grep = grep -Ii
+
+    # find file
+    f = "!git ls-files | grep -i"
+
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+    # show commit log for a given file
+    fl = log -u
+
+    #show files modified in last commit
+    dl = "!git ll -1"
+
